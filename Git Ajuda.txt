@@ -1,0 +1,54 @@
+---------- Como Criar ----------
+1) Criar um arquivo .gitignore
+ * usar o cmd(SHIFT+BTDIREITO) - ren nomepasta .gitignore
+ * colocar o que deve ser ignorado
+2) Iniciar o GIT BASH
+ * git init
+3) Defina para o GIT quem é você:
+ * git config --global user.name "Seu Nome"
+ * git config --global user.email "Seu Email"
+--------- Salvar uma versão -----------
+. A ação de salvar uma "versão" do projeto chama-se "commit"
+1) Primeiro verificar como está o repositorio
+ * git status // vermelho: arquivos não rastreados(untracked), verde: arquivos prontos para serem "comitados"(stage)
+ Caso estiver em vermelho:
+	1) Coloque os arquivos modificados na área de "stage":
+		* git add . //todos os arquivos
+2) Realize o commit
+ * git commit -m "Descrição do commit"
+
+* Para sair do VIM tecle <ESC> e digite :q!
+* Para descartar todas alterações 
+ . git clean -df
+ . git checkout -- .
+* Para desfazer o último commit
+1) Remover o último commit mantendo as alterações nos arquivos:
+ git reset --soft HEAD~1
+2) Remover o último commit INCLUSIVE as alterações nos arquivos(!PERIGO)
+ git reset --hard HEAD~1
+* git log//mostra os commit (--oneline//de forma reduzida)
+* Para navegar entre commits
+1) Navegar entre commits, alterando os arquivos temporariamente: 
+ git checkout <codigo do commit>
+2) Volte para o último commit
+ git checkout <nome da branch>
+
+----------- Associando um repósitorio remoto ao seu local -------------
+1) Associar nosso repositório local ao repositório remoto, dando o apelido de "origin" a ele:
+ git remote add origin <URI do repositorio>
+2) Associar o repositorio local a um outro repositório remoto, pórem mantendo o mesmo apelido:
+ git remote set-url origin <URI>
+
+---------- Subindo o repositório local para o Github --------
+1) Fazendo o push
+ git push -u origin master
+*Nota: se você usou a opção -u na proxima vez que for subir branch master, basta fazer "git push"
+
+--------- Copiando um repositório remoto para seu computador
+1) Copiar o repositório, inclusive o histórico de commits:
+ git clone <URI do repositório remoto>
+
+--------- Atualizando seu repositório -----------
+**AVISO: o Git so deixa voce continuar um trabalho e depois subi-lo para o repositorio remoto, se voce mantiver a sequencia coerente de commits
+1) Para atualizar seu repositorio
+ git pull origin master
